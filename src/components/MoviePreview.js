@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export function MoviePreview(props) {
-    const overview = props.overview.slice(0, 20);
+    const overview = `${props.overview.slice(0, 20)}...`;
     
     return (
         <div>
