@@ -1,0 +1,18 @@
+.input-username {
+    border-color: cadetblue;
+}
+
+.input-password {
+    border-color: darkgoldenrod;
+}
+
+.submit-btn {
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+}
+
+.submit-btn:hover {
+    background-color: #555555;
+    color: white;
+}

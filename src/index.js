@@ -32,8 +32,8 @@ function login({ username, password}) {
 function MainComponent() {
     return (
         <div>
-            <Login login={login}/>
             <App fetchUser={fetchUser} />
+            <Login login={login}/>
             <MoviePreview {...movie} />          
         </div>
     );
