@@ -1,6 +1,8 @@
 import React from 'react';
-import {MoviePreview} from "./MoviePreview";
+
 import PropTypes from "prop-types";
+
+import {MoviePreview} from "./MoviePreview";
 
 export function NavBar(props) {
     return (

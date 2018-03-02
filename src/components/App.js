@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { NavBar } from "./NavBar";
+import { MaterialNavBar } from './MaterialNavBar.js';
 
 import PropTypes from 'prop-types';
 
