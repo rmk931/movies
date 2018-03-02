@@ -12,8 +12,25 @@ export class MoviesContainer extends React.Component {
         };
     }
 
+    fetchMovies(cb) {
+    return cb([
+                  {
+                      index: 0,
+                      originalTitle: 'some movie',
+                      overview: 'some movie some movie some movie some movie some movie some movie',
+                      posterPath: 'https://avatars1.githubusercontent.com/u/583231?s=400&v=4'
+                  },
+                  {
+                      index: 1,
+                      originalTitle: 'fun movie',
+                      overview: 'some movie some movie some movie some movie some movie some movie',
+                      posterPath: 'https://avatars1.githubusercontent.com/u/583231?s=400&v=4'
+                  }
+              ]);
+    }
+
     componentDidMount() {
-        this.props.fetchMovies(movies => {
+        this.fetchMovies(movies => {
             this.setState({
                 movies: movies
             })
@@ -25,8 +42,4 @@ export class MoviesContainer extends React.Component {
             <MovieList movies={this.state.movies}/>
         )
     }
-}
-
-MoviesContainer.propTypes = {
-    fetchMovies: PropTypes.func
 }

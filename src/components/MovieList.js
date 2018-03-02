@@ -11,8 +11,8 @@ export class MovieList extends React.Component {
                 {this.props.movies.length > 0 &&
                     <ul>
                         {this.props.movies.map((movie) =>
-                            <li>   
-                                <MoviePreview {...movie} key={movie.index}/>
+                            <li key={movie.index}>
+                                <MoviePreview {...movie} />
                             </li>
                         )}
 
