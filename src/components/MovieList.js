@@ -9,14 +9,14 @@ export class MovieList extends React.Component {
         return (
             <div>
                 {this.props.movies.length > 0 &&
-                    <ul>
-                        {this.props.movies.map((movie) =>
-                            <li key={movie.index}>
+                    
+                        this.props.movies.map((movie) =>
+                            <div key={movie.id}>
                                 <MoviePreview {...movie} />
-                            </li>
-                        )}
+                            </div>
+                        )
 
-                    </ul>
+                    
                 }
             </div>
         )

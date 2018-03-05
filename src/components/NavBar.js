@@ -2,22 +2,33 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 import {Link, withRouter} from 'react-router-dom';
-import {MoviePreview} from "./MoviePreview";
+import { Button, AppBar, Typography, withStyles, Toolbar } from 'material-ui';
+
+const root = {
+        flexgrow: 1,
+    }
+
+const flex = {
+        flex: 1,
+    };
+
 
 function NavBar(props) {
     return (
-        <div>
-            <h1>Some page</h1>
-            <p>{props.user.name}</p>
+        <div style={root}>
+        <AppBar position="static">
+        <Toolbar>
+            <Typography variant="title" color="inherit" style={flex}>Some page</Typography>
+            <Typography color="inherit" >Username: {props.user.name}</Typography>
 
-
-            <div onClick={() => {
+            <Button color="inherit" onClick={() => {
                 props.history.push('/');
-
-            }}>Logout</div>
-
-            <Link to="/login">Login</Link>
-
+            }}>Logout</Button>
+            <Button color="inherit"onClick={() => {
+                props.history.push('/login');
+            }}>Login</Button>
+        </Toolbar>
+        </AppBar>
         </div>
     );
 };

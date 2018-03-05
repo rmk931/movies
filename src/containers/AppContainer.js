@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { App } from '../components/App.js';
+import NavBar from '../components/NavBar.js';
 import { Login } from '../components/Login.js';
 import { MovieItem } from '../components/MovieItem';
 
@@ -13,7 +13,7 @@ class AppContainer extends React.Component {
     render() {
         return (
             <div>
-                <App fetchUser={fetchUser} />
+                <NavBar user={user}/>
                 <Switch>
                     <Route path="/login" component={Login} login={login}/>
                     <Route path="/movies" component={Movies}/>
@@ -41,14 +41,20 @@ const Movies = () => (
 function fetchMovies(cb) {
     return cb([
         {
-            index: 0,
+            id: 0,
             originalTitle: 'some movie',
             overview: 'some movie some movie some movie some movie some movie some movie',
             posterPath: 'https://avatars1.githubusercontent.com/u/583231?s=400&v=4'
         },
         {
-            index: 1,
+            id: 1,
             originalTitle: 'fun movie',
+            overview: 'some movie some movie some movie some movie some movie some movie',
+            posterPath: 'https://avatars1.githubusercontent.com/u/583231?s=400&v=4'
+        },
+        {
+            id: 2,
+            originalTitle: 'sad movie',
             overview: 'some movie some movie some movie some movie some movie some movie',
             posterPath: 'https://avatars1.githubusercontent.com/u/583231?s=400&v=4'
         }
@@ -70,7 +76,5 @@ function fetchUser() {
         name: 'Bill'
     };
 }
-
-
 
 export default AppContainer;

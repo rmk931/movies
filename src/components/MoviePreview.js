@@ -21,7 +21,7 @@ const array = [
 
 export function MoviePreview(props) {
     const overview = `${props.overview.slice(0, 20)}...`;
-    const route = `/movies/${props.index}`;
+    const route = `/movies/${props.id}`;
 
     return (
         <div>
