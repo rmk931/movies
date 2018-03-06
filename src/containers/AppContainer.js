@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import NavBar from '../components/NavBar.js';
-import { Login } from '../components/Login.js';
+import Login from '../components/Login.js';
 import { MovieItem } from '../components/MovieItem';
 
 import { MoviesContainer } from '../containers/MoviesContainer.js';
@@ -15,7 +15,7 @@ class AppContainer extends React.Component {
             <div>
                 <NavBar user={user}/>
                 <Switch>
-                    <Route path="/login" component={Login} login={login}/>
+                    <Route path="/login" component={Login}/>
                     <Route path="/movies" component={Movies}/>
                 </Switch>
             </div>
