@@ -20,11 +20,11 @@ class Auth extends React.Component {
         return (
             <form onSubmit={this.props.handleSubmit}>
                 <label>Username:
-                    <input type="text" value={this.props.username} name='username' onChange={this.props.handleChange} className="input-username"/>
+                    <input type="text" value={this.props.username} name='username' onChange={this.props.handleChange}/>
                 </label>
 
                 <label>Password:
-                    <input type="text" value={this.props.password} name='password' onChange={this.props.handleChange} className="input-password"/>
+                    <input type="password" value={this.props.password} name='password' onChange={this.props.handleChange}/>
                 </label>
 
                 <input type="submit" value="Submit" className="submit-btn"/>

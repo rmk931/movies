@@ -7,6 +7,8 @@ import Auth from '../components/Auth';
 import * as actions from '../ducks/auth-duck/Actions';
 import * as selectors from '../ducks/auth-duck/Selectors';
 
+import { gcf } from '../config';
+
 class AuthContainer extends React.Component {
     constructor(props) {
         super(props);
@@ -19,11 +21,14 @@ class AuthContainer extends React.Component {
 
     componentDidMount() {
         this.props.fetchTokenRequest();
-        this.props.getRequestToken('48957349759834');
     };
 
+
+
     login() {
-        console.log(`Form parameters: ${this.state.username}, ${this.state.password}`);
+        // console.log(`Form parameters: ${this.state.username}, ${this.state.password}`);
+
+        this.props.authWithLogin(this.state.username, this.state.password, this.props.requestToken);
     }
 
     handleChange(e) {
@@ -56,6 +61,7 @@ AuthContainer.propTypes = {
     error: PropTypes.string.isRequired,
     fetchTokenRequest: PropTypes.func.isRequired,
     getRequestToken: PropTypes.func.isRequired,
+    authWithLogin: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
