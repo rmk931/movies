@@ -1,21 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import NavBar from '../components/NavBar.js';
-import Login from '../components/Login.js';
-import { MovieItem } from '../components/MovieItem';
+import NavBar from '../components/NavBar';
+import MovieItemContainer from '../containers/MovieItemContainer';
+import { HomePage } from '../components/HomePage';
 
-import { MoviesContainer } from '../containers/MoviesContainer.js';
+import MoviesContainer from '../containers/MoviesContainer.js';
 
 import { BrowseRouter, Route, Switch } from 'react-router-dom';
+import AuthContainer from './AuthContainer';
+import { PrivateRoute } from '../components/PrivateRoute';
+
+const isAuthTrue = true;
+const isAuthFalse = true;
 
 class AppContainer extends React.Component {
     render() {
         return (
             <div>
-                <NavBar user={user}/>
+                <NavBar user={user} isAuth={isAuthFalse}/>
                 <Switch>
-                    <Route path="/login" component={Login}/>
+                    <Route exact path="/" component={HomePage}/>
+                    <Route path="/login" component={AuthContainer}/>
                     <Route path="/movies" component={Movies}/>
                 </Switch>
             </div>
@@ -25,17 +31,20 @@ class AppContainer extends React.Component {
 
 const Movies = () => (
     <Switch>
-        <Route
-            exact
+        <PrivateRoute 
+            exact 
             path="/movies"
             component={MoviesContainer}
+            isAuth={isAuthFalse}    
         />
-        <Route
+        <PrivateRoute
             path="/movies/:id"
-            component={MovieItem}
+            component={MovieItemContainer}
+            isAuth={isAuthFalse}
         />
     </Switch>
 );
+
 
 
 function fetchMovies(cb) {
@@ -66,9 +75,9 @@ const user = {
     city: 'Palo Alto'
 };
 
-function login({ username, password}) {
-    console.log(`Form parameters: ${username}, ${password}`);
-}
+//function login({ username, password}) {
+//    console.log(`Form parameters: ${username}, ${password}`);
+//}
 
 
 function fetchUser() {

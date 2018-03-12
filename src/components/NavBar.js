@@ -1,5 +1,4 @@
 import React from 'react';
-
 import PropTypes from 'prop-types';
 import {Link, withRouter} from 'react-router-dom';
 import { Button, AppBar, Typography, withStyles, Toolbar } from 'material-ui';
@@ -18,15 +17,20 @@ function NavBar(props) {
         <div style={root}>
         <AppBar position="static">
         <Toolbar>
-            <Typography variant="title" color="inherit" style={flex}>Some page</Typography>
+            <Typography variant="title" color="inherit" style={flex}>Some movies</Typography>
             <Typography color="inherit" >Username: {props.user.name}</Typography>
-
             <Button color="inherit" onClick={() => {
                 props.history.push('/');
-            }}>Logout</Button>
+            }}>HOME</Button>
+            <Button color="inherit" onClick={() => {
+                props.history.push('/movies');
+            }}>MOVIES</Button>
+            <Button color="inherit" onClick={() => {
+                props.history.push('/');
+            }}>LOGOUT</Button>
             <Button color="inherit"onClick={() => {
                 props.history.push('/login');
-            }}>Login</Button>
+            }}>LOGIN</Button>
         </Toolbar>
         </AppBar>
         </div>

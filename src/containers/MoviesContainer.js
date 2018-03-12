@@ -1,10 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-import PropTypes from "prop-types";
+import { MovieList } from "../components/MovieList";
 
-import {MovieList} from "../components/MovieList";
+import * as actions from '../ducks/movies-duck/Actions';
+import * as selectors from '../ducks/movies-duck/Selectors';
 
-export class MoviesContainer extends React.Component {
+
+class MoviesContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -44,8 +48,21 @@ export class MoviesContainer extends React.Component {
     }
 
     render() {
-        return (
+        return ( 
             <MovieList movies={this.state.movies}/>
         )
     }
 }
+
+const mapStateToProps = state => ({
+    MovieList: selectors.selectMovies(state),
+    error: selectors.selectError(state)
+});
+
+const mapDispatchToProps = {
+    fetchMovies: actions.fetchMoviesRequest,   
+    fetchMovie: actions.fetchMovieRequest    
+};
+
+export default MoviesContainer;
+

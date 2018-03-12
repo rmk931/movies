@@ -1,3 +1,7 @@
+div {
+    display: block;
+}
+
 .input-username {
     border-color: cadetblue;
 }
@@ -16,3 +20,4 @@
     background-color: #555555;
     color: white;
 }
+

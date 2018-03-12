@@ -1,0 +1,6 @@
+export const FETCH_MOVIES_REQUEST = '@@movies/FETCH_TOKEN_REQUEST';
+export const FETCH_MOVIES_SUCCESS = '@@movies/FETCH_TOKEN_SUCCESS';
+export const FETCH_MOVIES_ERROR = '@@movies/FETCH_TOKEN_ERROR';
+export const FETCH_MOVIE_REQUEST = '@@movies/FETCH_MOVIE_REQUEST';
+export const FETCH_MOVIE_SUCCESS = '@@movies/FETCH_MOVIE_SUCCESS';
+export const FETCH_MOVIE_ERROR = '@@movies/FETCH_MOVIE_ERROR';
