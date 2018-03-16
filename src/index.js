@@ -15,17 +15,16 @@ import AppContainer  from './containers/AppContainer';
 import './style.css';
 
 const history = createHistory()
-
-const middleware = routerMiddleware(history)
-
-const initialState = {};
+const routeMiddleware = routerMiddleware(history)
 
 const sagaMiddleware = createSagaMiddleware();
+
+const initialState = {};
 
 const store = createStore(
     rootReducer,
     initialState,
-    composeWithDevTools(applyMiddleware(sagaMiddleware, middleware))
+    composeWithDevTools(applyMiddleware(sagaMiddleware, routeMiddleware))
 );
 
 sagaMiddleware.run(RootSaga);

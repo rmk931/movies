@@ -1,6 +1,6 @@
 import * as types from './ActionTypes';
 
-moviesList = [
+const moviesList = [
     {
         id: 0,
         originalTitle: 'some movie',
@@ -22,7 +22,7 @@ moviesList = [
 ];
 
 const initialState = {
-    movies: [...moviesList],
+    movies: [],
     selectedMovie: {},
     error: ''
 }
@@ -33,11 +33,6 @@ export const movies = (state = initialState, action) => {
             return {
                 ...state,
                 movies: action.movies
-            };
-        case types.FETCH_MOVIE_REQUEST:
-            return {
-                ...state,
-                selectedMovie: state.movies.find((movie) => movie.id === action.id)
             };
         case types.FETCH_MOVIE_SUCCESS:
             return {

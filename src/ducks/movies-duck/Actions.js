@@ -11,7 +11,7 @@ export const fetchMoviesSuccess = (movies) => ({
 
 export const fetchMoviesError = (error) => ({
     type: types.FETCH_MOVIES_ERROR,
-    erorr
+    error
 });
 
 export const fetchMovieRequest = (id) => ({
@@ -26,5 +26,5 @@ export const fetchMovieSuccess = (selectedMovie) => ({
 
 export const fetchMovieError = (error) => ({
     type: types.FETCH_MOVIE_ERROR,
-    erorr
+    error
 });

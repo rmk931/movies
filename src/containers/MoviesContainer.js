@@ -9,60 +9,32 @@ import * as selectors from '../ducks/movies-duck/Selectors';
 
 
 class MoviesContainer extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            movies: []
-        };
-    }
-
-    fetchMovies(cb) {
-    return cb([
-                  {
-                      id: 0,
-                      originalTitle: 'some movie',
-                      overview: 'some movie some movie some movie some movie some movie some movie',
-                      posterPath: 'https://avatars1.githubusercontent.com/u/583231?s=400&v=4'
-                  },
-                  {
-                      id: 1,
-                      originalTitle: 'fun movie',
-                      overview: 'some movie some movie some movie some movie some movie some movie',
-                      posterPath: 'https://avatars1.githubusercontent.com/u/583231?s=400&v=4'
-                  },
-                  {
-                    id: 2,
-                    originalTitle: 'sad movie',
-                    overview: 'some movie some movie some movie some movie some movie some movie',
-                    posterPath: 'https://avatars1.githubusercontent.com/u/583231?s=400&v=4'
-                }
-              ]);
-    }
-
     componentDidMount() {
-        this.fetchMovies(movies => {
-            this.setState({
-                movies: movies
-            })
-        })
+        this.props.fetchMovies();    
     }
 
     render() {
         return ( 
-            <MovieList movies={this.state.movies}/>
+            <MovieList movies={this.props.movies}/>
         )
     }
 }
 
 const mapStateToProps = state => ({
-    MovieList: selectors.selectMovies(state),
+    movies: selectors.selectMovies(state),
     error: selectors.selectError(state)
 });
 
 const mapDispatchToProps = {
-    fetchMovies: actions.fetchMoviesRequest,   
-    fetchMovie: actions.fetchMovieRequest    
+    fetchMovies: actions.fetchMoviesRequest,       
 };
 
-export default MoviesContainer;
+MoviesContainer.propTypes = {
+    fetchMovies: PropTypes.func,
+    movies: PropTypes.array,
+    error: PropTypes.string
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(MoviesContainer);
 
