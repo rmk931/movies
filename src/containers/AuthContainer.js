@@ -22,11 +22,8 @@ class AuthContainer extends React.Component {
         this.props.fetchTokenRequest();
     };
 
-
-
     login() {
         this.props.authWithLogin(this.state.username, this.state.password, this.props.requestToken);
-        this.props.history.push('/movies');
     }
 
     handleChange(e) {
@@ -35,7 +32,6 @@ class AuthContainer extends React.Component {
 
     handleSubmit(e) {
         this.login();
-        this.props.history.push('/movies');
         e.preventDefault();
     }
 
@@ -75,6 +71,4 @@ const mapDispatchToProps = {
     authWithLogin: actions.loginRequest
 };
 
-
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AuthContainer));
+export default connect(mapStateToProps, mapDispatchToProps)(AuthContainer);

@@ -1,26 +1,5 @@
 import * as types from './ActionTypes';
 
-const moviesList = [
-    {
-        id: 0,
-        originalTitle: 'some movie',
-        overview: 'some movie some movie some movie some movie some movie some movie',
-        posterPath: 'https://avatars1.githubusercontent.com/u/583231?s=400&v=4'
-    },
-    {
-        id: 1,
-        originalTitle: 'fun movie',
-        overview: 'some movie some movie some movie some movie some movie some movie',
-        posterPath: 'https://avatars1.githubusercontent.com/u/583231?s=400&v=4'
-    },
-    {
-        id: 2,
-        originalTitle: 'sad movie',
-        overview: 'some movie some movie some movie some movie some movie some movie',
-        posterPath: 'https://avatars1.githubusercontent.com/u/583231?s=400&v=4'
-    }
-];
-
 const initialState = {
     movies: [],
     selectedMovie: {},

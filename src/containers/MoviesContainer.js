@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { MovieList } from "../components/MovieList";
+import MovieList from "../components/MovieList";
 
 import * as actions from '../ducks/movies-duck/Actions';
 import * as selectors from '../ducks/movies-duck/Selectors';

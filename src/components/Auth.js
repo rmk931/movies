@@ -12,14 +12,24 @@ import * as actions from '../ducks/auth-duck/Actions';
 import * as selectors from '../ducks/auth-duck/Selectors';
 
 const styles = theme => ({
+    root: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        listStyle: 'none',
+        justifyContent: 'center'
+    },
     card: {
-      display: 'flex',
-      alignItems: 'center'
+        margin: 10,
+        padding: 10
+    },
+    field: {
+        margin: 10,
+        
     },
     title: {
       marginBottom: 16,
       fontSize: 14,
-      color: theme.palette.text.secondary,
+      color: theme.palette.text.secondary
     },
 });
 
@@ -27,7 +37,7 @@ class Auth extends React.Component {
     render() {
         const { classes } = this.props;
         return (
-            <div>
+            <div className={classes.root}>
                 <Card className={classes.card}>
                     <CardContent>
                         <Typography className={classes.title}>Authorization</Typography>
@@ -38,7 +48,9 @@ class Auth extends React.Component {
                             name="username" 
                             onChange={this.props.handleChange}
                             label="Username"
+                            className={classes.field}
                         />
+                        <br/>
                         <TextField 
                             required
                             type="password"
@@ -46,6 +58,7 @@ class Auth extends React.Component {
                             name="password" 
                             onChange={this.props.handleChange}
                             label="Password"
+                            className={classes.field}
                         />
                     </CardContent>
                     <CardActions>
@@ -55,7 +68,7 @@ class Auth extends React.Component {
                             value="Submit"
                             onClick={this.props.handleSubmit}>
                             Log in
-                        </Button> 
+                        </Button>
                     </CardActions>
                 </Card>
             </div>
