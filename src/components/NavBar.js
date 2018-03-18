@@ -48,7 +48,9 @@ class NavBar extends React.Component {
 
 
 NavBar.propTypes = {
-    user: PropTypes.object,
+    username: PropTypes.string,
+    isAuth: PropTypes.bool,
+    logout: PropTypes.func,
     classes: PropTypes.object
 };
 
