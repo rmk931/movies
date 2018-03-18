@@ -21,7 +21,8 @@ class NavBar extends React.Component {
             <AppBar position="static">
                 <Toolbar>
                     <Typography variant="title" color="inherit" className={classes.flex}>Some movies</Typography>
-                    <Typography>Hello, {this.props.username}!</Typography>
+                    {this.props.isAuth && this.props.username &&
+                        <Typography>Hello, {this.props.username}!</Typography>}
                     <Button color="inherit" onClick={() => {
                         this.props.history.push('/');
                     }}>HOME</Button>
