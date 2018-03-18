@@ -16,7 +16,7 @@ const styles = {
     media: {
         height: 450,
     },
-  };
+};
   
 
 function MoviePreview(props) {
@@ -26,7 +26,6 @@ function MoviePreview(props) {
     const { classes } = props;
 
     return (
-        
             <Card className={classes.card}>
                 <CardMedia
                     className={classes.media}
@@ -52,7 +51,6 @@ function MoviePreview(props) {
                     </Button>   
                 </CardActions>
             </Card>
-        
     );
 }
 

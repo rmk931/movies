@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import { withStyles } from 'material-ui/styles'
 import Typography from 'material-ui/Typography'
 import Paper from 'material-ui/Paper'
@@ -10,7 +11,7 @@ const styles = theme => ({
         paddingBottom: 16,
         marginTop: theme.spacing.unit * 3
     })
-})
+});
 
 const HomePage = (props) => {
     const { classes } = props;
@@ -21,10 +22,10 @@ const HomePage = (props) => {
             </Paper>
         </div>
     )
-}
+};
 
 HomePage.propTypes = {
     classes: PropTypes.object
-}
+};
 
 export default withStyles(styles)(HomePage);

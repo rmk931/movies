@@ -1,15 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 
 import { withStyles } from 'material-ui/styles';
 import Card, { CardActions, CardContent } from 'material-ui/Card';
 import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
 import TextField from 'material-ui/TextField';
-
-import * as actions from '../ducks/auth-duck/Actions';
-import * as selectors from '../ducks/auth-duck/Selectors';
 
 const styles = theme => ({
     root: {

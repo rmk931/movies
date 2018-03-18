@@ -11,7 +11,7 @@ const styles = {
         listStyle: 'none',
         justifyContent: 'center',
     }
-}
+};
 
 class MovieList extends React.Component {
     render() {
@@ -35,7 +35,8 @@ class MovieList extends React.Component {
 }
 
 MovieList.propTypes = {
-    movies: PropTypes.array
-}
+    movies: PropTypes.array,
+    classes: PropTypes.object
+};
 
 export default withStyles(styles)(MovieList);

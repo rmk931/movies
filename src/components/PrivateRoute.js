@@ -12,8 +12,8 @@ export const PrivateRoute = ({ component: Component, isAuth, ...rest }) => {
             }
         />         
     )
-}
+};
 
 PrivateRoute.propTypes = {
     isAuth: PropTypes.bool
-}
+};

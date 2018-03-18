@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 
 export function MovieItem(props) {
     return (
@@ -16,4 +15,4 @@ MovieItem.propTypes = {
     title: PropTypes.string,
     overview: PropTypes.string,
     poster: PropTypes.string
-}
+};

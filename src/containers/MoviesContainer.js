@@ -7,7 +7,6 @@ import MovieList from "../components/MovieList";
 import * as actions from '../ducks/movies-duck/Actions';
 import * as selectors from '../ducks/movies-duck/Selectors';
 
-
 class MoviesContainer extends React.Component {
     componentDidMount() {
         this.props.fetchMovies();    
@@ -34,7 +33,6 @@ MoviesContainer.propTypes = {
     movies: PropTypes.array,
     error: PropTypes.string
 };
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(MoviesContainer);
 

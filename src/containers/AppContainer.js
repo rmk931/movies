@@ -1,6 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowseRouter, Route, Switch, withRouter } from 'react-router-dom';
+import React from 'react'
+import PropTypes from 'prop-types';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import NavBar from '../components/NavBar';
@@ -16,10 +16,6 @@ import * as actions from '../ducks/auth-duck/Actions';
 import * as selectors from '../ducks/auth-duck/Selectors';
 
 class AppContainer extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (
             <div>
@@ -32,24 +28,23 @@ class AppContainer extends React.Component {
                     <Route exact path="/" component={HomePage}/>
                     <Route path="/login" component={AuthContainer}/>
                     <Switch>
-        <PrivateRoute 
-            exact 
-            path="/movies"
-            component={MoviesContainer}
-            isAuth={this.props.isAuth}    
-        />
-        <PrivateRoute
-            path="/movies/:id"
-            component={MovieItemContainer}
-            isAuth={this.props.isAuth}
-        />
-    </Switch>
+                        <PrivateRoute
+                            exact
+                            path="/movies"
+                            component={MoviesContainer}
+                            isAuth={this.props.isAuth}
+                        />
+                        <PrivateRoute
+                            path="/movies/:id"
+                            component={MovieItemContainer}
+                            isAuth={this.props.isAuth}
+                        />
+                    </Switch>
                 </Switch>
             </div>
         );
     }
 }
-
 
 const mapStateToProps = state => ({
     isAuth: selectors.selectAuthStatus(state),
@@ -58,6 +53,12 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
     logout: actions.logout   
+};
+
+AppContainer.propTypes = {
+    isAuth: PropTypes.bool,
+    username: PropTypes.string,
+    logout: PropTypes.func
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AppContainer));

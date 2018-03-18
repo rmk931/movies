@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 
 import Auth from '../components/Auth';
 
@@ -52,11 +51,11 @@ class AuthContainer extends React.Component {
 
 AuthContainer.propTypes = {
     requestToken: PropTypes.string,
-    isAuth: PropTypes.bool.isRequired,
-    error: PropTypes.string.isRequired,
-    fetchTokenRequest: PropTypes.func.isRequired,
-    getRequestToken: PropTypes.func.isRequired,
-    authWithLogin: PropTypes.func.isRequired
+    isAuth: PropTypes.bool,
+    error: PropTypes.string,
+    fetchTokenRequest: PropTypes.func,
+    getRequestToken: PropTypes.func,
+    authWithLogin: PropTypes.func
 };
 
 const mapStateToProps = state => ({
