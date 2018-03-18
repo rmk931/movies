@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Link, withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { Button, AppBar, Typography, withStyles, Toolbar } from 'material-ui';
 
 const root = {
@@ -12,29 +12,37 @@ const flex = {
     };
 
 
-function NavBar(props) {
-    return (
+class NavBar extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {return (
         <div style={root}>
-        <AppBar position="static">
-        <Toolbar>
-            <Typography variant="title" color="inherit" style={flex}>Some movies</Typography>
-            <Typography color="inherit" >Username: {props.user.name}</Typography>
-            <Button color="inherit" onClick={() => {
-                props.history.push('/');
-            }}>HOME</Button>
-            <Button color="inherit" onClick={() => {
-                props.history.push('/movies');
-            }}>MOVIES</Button>
-            <Button color="inherit" onClick={() => {
-                props.history.push('/');
-            }}>LOGOUT</Button>
-            <Button color="inherit"onClick={() => {
-                props.history.push('/login');
-            }}>LOGIN</Button>
-        </Toolbar>
-        </AppBar>
+            <AppBar position="static">
+            <Toolbar>
+                <Typography variant="title" color="inherit" style={flex}>Some movies</Typography>
+                <Button color="inherit" onClick={() => {
+                    this.props.history.push('/');
+                }}>HOME</Button>
+                
+                <Button color="inherit" onClick={() => {
+                    this.props.history.push('/movies');
+                }}>MOVIES</Button>
+
+                {!this.props.isAuth ? 
+                    <Button color="inherit"onClick={() => {
+                        this.props.history.push('/login');
+                    }}>LOGIN</Button> :
+                    <Button color="inherit" onClick={() => {
+                        this.props.logout();
+                        this.props.history.push('/');
+                    }}>LOGOUT</Button>
+                }   
+            </Toolbar>
+            </AppBar>
         </div>
-    );
+    );}
 };
 
 
@@ -42,4 +50,5 @@ function NavBar(props) {
 NavBar.propTypes = {
     user: PropTypes.object
 }
+
 export default withRouter(NavBar);

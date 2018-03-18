@@ -1,89 +1,63 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowseRouter, Route, Switch, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import NavBar from '../components/NavBar';
 import MovieItemContainer from '../containers/MovieItemContainer';
-import { HomePage } from '../components/HomePage';
+import HomePage  from '../components/HomePage';
 
 import MoviesContainer from '../containers/MoviesContainer.js';
 
-import { BrowseRouter, Route, Switch } from 'react-router-dom';
 import AuthContainer from './AuthContainer';
 import { PrivateRoute } from '../components/PrivateRoute';
 
-const isAuthTrue = true;
-const isAuthFalse = true;
+import * as actions from '../ducks/auth-duck/Actions';
+import * as selectors from '../ducks/auth-duck/Selectors';
 
 class AppContainer extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
     render() {
         return (
             <div>
-                <NavBar user={user} isAuth={isAuthFalse}/>
+                <NavBar 
+                    username={this.props.username} 
+                    isAuth={this.props.isAuth}
+                    logout={this.props.logout}
+                />
                 <Switch>
                     <Route exact path="/" component={HomePage}/>
                     <Route path="/login" component={AuthContainer}/>
-                    <Route path="/movies" component={Movies}/>
+                    <Switch>
+        <PrivateRoute 
+            exact 
+            path="/movies"
+            component={MoviesContainer}
+            isAuth={this.props.isAuth}    
+        />
+        <PrivateRoute
+            path="/movies/:id"
+            component={MovieItemContainer}
+            isAuth={this.props.isAuth}
+        />
+    </Switch>
                 </Switch>
             </div>
         );
     }
 }
 
-const Movies = () => (
-    <Switch>
-        <PrivateRoute 
-            exact 
-            path="/movies"
-            component={MoviesContainer}
-            isAuth={isAuthFalse}    
-        />
-        <PrivateRoute
-            path="/movies/:id"
-            component={MovieItemContainer}
-            isAuth={isAuthFalse}
-        />
-    </Switch>
-);
 
+const mapStateToProps = state => ({
+    isAuth: selectors.selectAuthStatus(state),
+    username: selectors.selectUsername(state)
+});
 
-
-function fetchMovies(cb) {
-    return cb([
-        {
-            id: 0,
-            originalTitle: 'some movie',
-            overview: 'some movie some movie some movie some movie some movie some movie',
-            posterPath: 'https://avatars1.githubusercontent.com/u/583231?s=400&v=4'
-        },
-        {
-            id: 1,
-            originalTitle: 'fun movie',
-            overview: 'some movie some movie some movie some movie some movie some movie',
-            posterPath: 'https://avatars1.githubusercontent.com/u/583231?s=400&v=4'
-        },
-        {
-            id: 2,
-            originalTitle: 'sad movie',
-            overview: 'some movie some movie some movie some movie some movie some movie',
-            posterPath: 'https://avatars1.githubusercontent.com/u/583231?s=400&v=4'
-        }
-    ]);
-}
-
-const user = {
-    name: 'Steve',
-    city: 'Palo Alto'
+const mapDispatchToProps = {
+    logout: actions.logout   
 };
 
-//function login({ username, password}) {
-//    console.log(`Form parameters: ${username}, ${password}`);
-//}
-
-
-function fetchUser() {
-    return {
-        name: 'Bill'
-    };
-}
-
-export default AppContainer;
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AppContainer));

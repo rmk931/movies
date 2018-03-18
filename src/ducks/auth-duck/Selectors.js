@@ -10,3 +10,6 @@ export const selectError = (state) => {
     return state.auth.error;
 };
 
+export const selectUsername = (state) => {
+    return state.auth.username;
+}

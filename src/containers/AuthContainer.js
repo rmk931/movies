@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import Auth from '../components/Auth';
 
 import * as actions from '../ducks/auth-duck/Actions';
 import * as selectors from '../ducks/auth-duck/Selectors';
-
-import { gcf } from '../config';
 
 class AuthContainer extends React.Component {
     constructor(props) {
@@ -26,9 +25,8 @@ class AuthContainer extends React.Component {
 
 
     login() {
-        // console.log(`Form parameters: ${this.state.username}, ${this.state.password}`);
-
         this.props.authWithLogin(this.state.username, this.state.password, this.props.requestToken);
+        this.props.history.push('/movies');
     }
 
     handleChange(e) {
@@ -37,6 +35,7 @@ class AuthContainer extends React.Component {
 
     handleSubmit(e) {
         this.login();
+        this.props.history.push('/movies');
         e.preventDefault();
     }
 
@@ -76,9 +75,6 @@ const mapDispatchToProps = {
     authWithLogin: actions.loginRequest
 };
 
-// const mapDispatchToProps = dispatch => ({
-//     fetchTokenRequest: () => dispatch(actions.fetchTokenRequest()),
-//     authWithLogin: (username, password, requestToken) => dispatch(actions.loginRequest(username, password, requestToken))
-// });
 
-export default connect(mapStateToProps, mapDispatchToProps)(AuthContainer);
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AuthContainer));

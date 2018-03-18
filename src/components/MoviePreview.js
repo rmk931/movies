@@ -10,8 +10,8 @@ export function MoviePreview(props) {
 
     return (
         <div>
-            <img src={props.poster_path}/>
-            <h2>{props.original_itle}</h2>
+            <img src={props.posterPath}/>
+            <h2>{props.originalTitle}</h2>
             <p>{overview}</p>
             <Link to={route}><button>Learn more</button></Link>
         </div>
