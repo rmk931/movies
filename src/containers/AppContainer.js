@@ -20,7 +20,6 @@ class AppContainer extends React.Component {
         return (
             <div>
                 <NavBar 
-                    username={this.props.username} 
                     isAuth={this.props.isAuth}
                     logout={this.props.logout}
                 />
@@ -47,8 +46,7 @@ class AppContainer extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    isAuth: selectors.selectAuthStatus(state),
-    username: selectors.selectUsername(state)
+    isAuth: selectors.selectAuthStatus(state)
 });
 
 const mapDispatchToProps = {
@@ -57,7 +55,6 @@ const mapDispatchToProps = {
 
 AppContainer.propTypes = {
     isAuth: PropTypes.bool,
-    username: PropTypes.string,
     logout: PropTypes.func
 };
 

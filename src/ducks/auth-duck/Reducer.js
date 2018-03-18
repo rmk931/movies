@@ -17,6 +17,7 @@ export const auth = (state = initialState, action) => {
         case types.LOGIN_SUCCESS:
             return {
                 ...state,
+                username: action.username,
                 isAuth: true
             };
         case types.LOGOUT:

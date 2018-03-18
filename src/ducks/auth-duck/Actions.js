@@ -21,8 +21,9 @@ export const loginRequest = (username, password, request_token) => ({
     request_token
 });
 
-export const loginSuccess = () => ({
-    type: types.LOGIN_SUCCESS
+export const loginSuccess = (username) => ({
+    type: types.LOGIN_SUCCESS,
+    username
 });
 
 export const loginError = (error) => ({

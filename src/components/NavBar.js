@@ -21,8 +21,7 @@ class NavBar extends React.Component {
             <AppBar position="static">
                 <Toolbar>
                     <Typography variant="title" color="inherit" className={classes.flex}>Some movies</Typography>
-                    {this.props.isAuth && this.props.username &&
-                        <Typography>Hello, {this.props.username}!</Typography>}
+                
                     <Button color="inherit" onClick={() => {
                         this.props.history.push('/');
                     }}>HOME</Button>
@@ -49,7 +48,6 @@ class NavBar extends React.Component {
 
 
 NavBar.propTypes = {
-    username: PropTypes.string,
     isAuth: PropTypes.bool,
     logout: PropTypes.func,
     classes: PropTypes.object

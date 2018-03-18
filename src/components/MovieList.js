@@ -9,9 +9,9 @@ const styles = {
         display: 'flex',
         flexWrap: 'wrap',
         listStyle: 'none',
-        justifyContent: 'center',
+        justifyContent: 'center'
     }
-};
+}
 
 class MovieList extends React.Component {
     render() {
@@ -35,8 +35,7 @@ class MovieList extends React.Component {
 }
 
 MovieList.propTypes = {
-    movies: PropTypes.array,
-    classes: PropTypes.object
-};
+    movies: PropTypes.array
+}
 
 export default withStyles(styles)(MovieList);
