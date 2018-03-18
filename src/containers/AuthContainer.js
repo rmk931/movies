@@ -35,8 +35,6 @@ class AuthContainer extends React.Component {
     }
 
     render() {
-        console.log(this.props.isAuth);
-        console.log(this.props.requestToken);
         return (
             <Auth 
                 username={this.state.username}
