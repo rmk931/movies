@@ -54,8 +54,8 @@ const mapDispatchToProps = {
 };
 
 AppContainer.propTypes = {
-    isAuth: PropTypes.bool,
-    logout: PropTypes.func
+    isAuth: PropTypes.bool.isRequired,
+    logout: PropTypes.func.isRequired
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AppContainer));

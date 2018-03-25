@@ -55,10 +55,10 @@ function MoviePreview(props) {
 }
 
 MoviePreview.propTypes = {
-    originalTitle : PropTypes.string,
-    overview : PropTypes.string,
-    poster : PropTypes.string,
-    classes: PropTypes.object
+    originalTitle : PropTypes.string.isRequired,
+    overview : PropTypes.string.isRequired,
+    poster : PropTypes.string.isRequired,
+    classes: PropTypes.object.isRequired
 }
 
 export default withRouter(withStyles(styles)(MoviePreview));

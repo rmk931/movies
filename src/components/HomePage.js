@@ -25,7 +25,7 @@ const HomePage = (props) => {
 };
 
 HomePage.propTypes = {
-    classes: PropTypes.object
+    classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(HomePage);

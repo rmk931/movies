@@ -25,7 +25,6 @@ class MovieItemContainer extends React.Component {
 
 const mapStateToProps = state => ({
     selectedMovie: selectors.selectMovie(state),
-    error: selectors.selectError(state)
 });
 
 const mapDispatchToProps = {
@@ -33,9 +32,8 @@ const mapDispatchToProps = {
 };
 
 MovieItemContainer.propTypes = {
-    fetchMovie: PropTypes.func,
-    selectedMovie: PropTypes.object,
-    error: PropTypes.string
+    fetchMovie: PropTypes.func.isRequired,
+    selectedMovie: PropTypes.object.isRequired
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieItemContainer);

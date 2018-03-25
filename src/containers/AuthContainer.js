@@ -47,25 +47,23 @@ class AuthContainer extends React.Component {
 
 };
 
-AuthContainer.propTypes = {
-    requestToken: PropTypes.string,
-    isAuth: PropTypes.bool,
-    error: PropTypes.string,
-    fetchTokenRequest: PropTypes.func,
-    getRequestToken: PropTypes.func,
-    authWithLogin: PropTypes.func
-};
-
 const mapStateToProps = state => ({
     requestToken: selectors.selectToken(state),
-    isAuth: selectors.selectAuthStatus(state),
-    error: selectors.selectError(state)
+    isAuth: selectors.selectAuthStatus(state)
 });
 
 const mapDispatchToProps = {
     fetchTokenRequest: actions.fetchTokenRequest,
     getRequestToken: actions.fetchTokenSuccess,
     authWithLogin: actions.loginRequest
+};
+
+AuthContainer.propTypes = {
+    requestToken: PropTypes.string.isRequired,
+    isAuth: PropTypes.bool.isRequired,
+    fetchTokenRequest: PropTypes.func.isRequired,
+    getRequestToken: PropTypes.func.isRequired,
+    authWithLogin: PropTypes.func.isRequired
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AuthContainer);

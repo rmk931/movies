@@ -48,9 +48,9 @@ class NavBar extends React.Component {
 
 
 NavBar.propTypes = {
-    isAuth: PropTypes.bool,
-    logout: PropTypes.func,
-    classes: PropTypes.object
+    isAuth: PropTypes.bool.isRequired,
+    logout: PropTypes.func.isRequired,
+    classes: PropTypes.object.isRequired
 };
 
 export default withRouter(withStyles(styles)(NavBar));

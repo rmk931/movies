@@ -76,9 +76,9 @@ class Auth extends React.Component {
 Auth.propTypes = {
     username: PropTypes.string,
     password: PropTypes.string,
-    handleSubmit: PropTypes.func,
-    handleChange: PropTypes.func,
-    classes: PropTypes.object
+    handleSubmit: PropTypes.func.isRequired,
+    handleChange: PropTypes.func.isRequired,
+    classes: PropTypes.object.isRequired
 };
 
 export default  withStyles(styles)(Auth);
