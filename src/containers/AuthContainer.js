@@ -22,7 +22,7 @@ class AuthContainer extends React.Component {
     };
 
     login() {
-        this.props.authWithLogin(this.state.username, this.state.password, this.props.requestToken);
+        this.props.authWithLogin(this.state.username, this.state.password, this.props.requestToken, this.props.history.push);
     }
 
     handleChange(e) {
@@ -59,7 +59,7 @@ const mapDispatchToProps = {
 };
 
 AuthContainer.propTypes = {
-    requestToken: PropTypes.string.isRequired,
+    requestToken: PropTypes.string,
     isAuth: PropTypes.bool.isRequired,
     fetchTokenRequest: PropTypes.func.isRequired,
     getRequestToken: PropTypes.func.isRequired,

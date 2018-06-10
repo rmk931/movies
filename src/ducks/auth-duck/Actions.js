@@ -14,11 +14,12 @@ export const fetchTokenError = (error) => ({
     error
 });
 
-export const loginRequest = (username, password, request_token) => ({
+export const loginRequest = (username, password, request_token, historyPush) => ({
     type: types.LOGIN_REQUEST,
     username,
     password,
-    request_token
+    request_token,
+    historyPush
 });
 
 export const loginSuccess = (username) => ({

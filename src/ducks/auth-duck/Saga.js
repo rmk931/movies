@@ -31,8 +31,7 @@ function* loginSaga(action) {
 
         if (response && response.success) {
             yield put(actions.loginSuccess());
-            
-
+            yield call(action.historyPush, '/movies');
         } else {
             yield put(actions.loginError(response.status_message));
         }
