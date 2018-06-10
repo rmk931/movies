@@ -28,3 +28,27 @@ export const fetchMovieError = (error) => ({
     type: types.FETCH_MOVIE_ERROR,
     error
 });
+
+export const fetchGenresRequest = () => ({
+    type: types.FETCH_GENRES_REQUEST
+});
+
+export const fetchGenresSuccess = (genres) => ({
+    type: types.FETCH_GENRES_SUCCESS,
+    genres
+});
+
+export const fetchGenresError = (error) => ({
+    type: types.FETCH_GENRES_ERROR,
+    error
+});
+
+export const selectGenre = (id) => ({
+    type: types.SELECT_GENRE,
+    id
+});
+
+export const unselectGenre = (id) => ({
+    type: types.UNSELECT_GENRE,
+    id
+});
